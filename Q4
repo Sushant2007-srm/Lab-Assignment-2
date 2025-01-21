@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Worker {
+	int workerId;
+	char workerName[50];
+	float workerSalary;
+};
+int main() {
+	int numWorkers, i;
+	printf("Enter number of workers: ");
+	scanf("%d", &numWorkers);
+	struct Worker *workerList = (struct Worker *)malloc(numWorkers * sizeof(struct Worker));
+	for (i = 0; i < numWorkers; i++) {
+    	printf("Enter ID, Name, Salary for worker %d: ", i + 1);
+    	scanf("%d %[^\n] %f", &workerList[i].workerId, workerList[i].workerName, &workerList[i].workerSalary);
+	}
+	printf("\nWorker Details:\n");
+	for (i = 0; i < numWorkers; i++) {
+    	printf("ID: %d, Name: %s, Salary: %.2f\n", workerList[i].workerId, workerList[i].workerName, workerList[i].workerSalary);
+	}
+	free(workerList);
+	return 0;
+}
