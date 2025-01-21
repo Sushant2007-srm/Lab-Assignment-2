@@ -1,0 +1,20 @@
+#include <stdio.h>
+struct Vehicle {
+	int vehicleId;
+	char vehicleModel[50];
+	float rentalRate;
+};
+int main() {
+	struct Vehicle fleet[3];
+	int rentalDays, i;
+	for (i = 0; i < 3; i++) {
+    	printf("Enter ID, model, and rate for vehicle %d: ", i + 1);
+    	scanf("%d %[^\n] %f", &fleet[i].vehicleId, fleet[i].vehicleModel, &fleet[i].rentalRate);
+	}
+	printf("Enter rental days: ");
+	scanf("%d", &rentalDays);
+	for (i = 0; i < 3; i++) {
+    	printf("Vehicle %d (%s): Total Cost = %.2f\n", fleet[i].vehicleId, fleet[i].vehicleModel, fleet[i].rentalRate * rentalDays);
+	}
+	return 0;
+}
