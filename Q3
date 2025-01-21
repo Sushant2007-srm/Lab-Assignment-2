@@ -1,0 +1,20 @@
+#include <stdio.h>
+struct ComplexNumber {
+	float realPart, imaginaryPart;
+};
+int main() {
+	struct ComplexNumber num1, num2, sumResult, productResult;
+	printf("Enter real and imaginary parts of the first complex number: ");
+	scanf("%f%f", &num1.realPart, &num1.imaginaryPart);
+	printf("Enter real and imaginary parts of the second complex number: ");
+	scanf("%f%f", &num2.realPart, &num2.imaginaryPart);
+ 
+	sumResult.realPart = num1.realPart + num2.realPart;
+	sumResult.imaginaryPart = num1.imaginaryPart + num2.imaginaryPart;
+ 
+	productResult.realPart = num1.realPart * num2.realPart - num1.imaginaryPart * num2.imaginaryPart;
+	productResult.imaginaryPart = num1.realPart * num2.imaginaryPart + num1.imaginaryPart * num2.realPart;
+	printf("Sum: %.2f + %.2fi\n", sumResult.realPart, sumResult.imaginaryPart);
+	printf("Product: %.2f + %.2fi\n", productResult.realPart, productResult.imaginaryPart);
+	return 0;
+}
